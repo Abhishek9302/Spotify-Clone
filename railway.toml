@@ -1,8 +1,4 @@
+# This file configures the frontend service (rootDir=.)
+# Backend uses backend/nixpacks.toml for its build configuration
 [build]
 builder = "NIXPACKS"
-buildCommand = "npm ci --include=dev && next build"
-
-[deploy]
-startCommand = "node .next/standalone/server.js"
-healthcheckPath = "/"
-restartPolicyType = "ON_FAILURE"
