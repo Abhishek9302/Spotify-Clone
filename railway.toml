@@ -1,0 +1,8 @@
+[build]
+builder = "NIXPACKS"
+buildCommand = "npm ci --include=dev && next build"
+
+[deploy]
+startCommand = "node .next/standalone/server.js"
+healthcheckPath = "/"
+restartPolicyType = "ON_FAILURE"
