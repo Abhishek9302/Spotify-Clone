@@ -1,24 +1,11 @@
-# Dependencies
 node_modules/
-.pnpm-store/
-.yarn/
-
-# Build outputs
-.next/
 dist/
+.next/
 build/
-out/
-.turbo/
-.cache/
-
-# Environment
 .env
 .env.local
-.env*.local
-
-# Runtime/editor
+.env.production.local
 *.log
+coverage/
 .DS_Store
-*.pyc
-__pycache__/
-.venv/
+.turbo/
