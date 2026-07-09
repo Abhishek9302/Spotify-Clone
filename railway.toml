@@ -1,4 +1,0 @@
-# This file configures the frontend service (rootDir=.)
-# Backend uses backend/nixpacks.toml for its build configuration
-[build]
-builder = "NIXPACKS"
