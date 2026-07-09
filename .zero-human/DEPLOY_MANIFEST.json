@@ -1,0 +1,7 @@
+{
+  "monorepoStructure": {
+    "frontend": ".",
+    "backend": "backend",
+    "database": "database"
+  }
+}
