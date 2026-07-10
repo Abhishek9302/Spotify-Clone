@@ -1,0 +1,24 @@
+# Frontend (Next.js standalone) build for Railway.
+#
+# Two things are essential and easy to miss:
+#  1. Install devDependencies (tailwindcss/postcss/autoprefixer/typescript) —
+#     Railway builds with NODE_ENV=production, and a plain `npm ci` would skip
+#     them, so Tailwind CSS would never compile and the app renders unstyled.
+#  2. `output: "standalone"` does NOT copy `.next/static` or `public/` into the
+#     standalone server dir, so every /_next/static/* asset 404s (no CSS, no JS).
+#     We copy them in after build so `server.js` serves them.
+[phases.setup]
+nixPkgs = ["nodejs_20"]
+
+[phases.install]
+cmds = ["npm ci --include=dev"]
+
+[phases.build]
+cmds = [
+  "npm run build",
+  "cp -r public .next/standalone/ 2>/dev/null || true",
+  "cp -r .next/static .next/standalone/.next/",
+]
+
+[start]
+cmd = "node .next/standalone/server.js"
